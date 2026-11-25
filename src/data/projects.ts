@@ -60,6 +60,7 @@ export interface Project {
 }
 
 const condoImages = "/images/projects/condo-access";
+const pianoImages = "/images/projects/universopiano";
 
 export const projects: Project[] = [
   {
@@ -286,16 +287,183 @@ export const projects: Project[] = [
   {
     slug: "universopiano",
     name: "UniversoPiano",
+    subtitle: "Sitio web de enseñanza musical · Santiago y online",
     category: "Sitios web",
-    status: "Pendiente de documentación",
+    status: "Finalizado",
+    role: "Frontend Developer · UI responsive · SEO técnico · Cloud Deployment",
     summary:
-      "Sitio web de presentación de clases de piano y sus servicios.",
+      "Sitio web profesional de clases de piano con arquitectura estática, diseño responsive, SEO técnico y contacto integrado por WhatsApp y correo. Construido con Next.js, React y TypeScript y desplegado en Cloudflare Workers.",
     description:
-      "Proyecto web para presentar las clases del profesor Phillippe.",
-    technologies: [],
-    features: [],
+      "UniversoPiano es un sitio web profesional orientado a la presentación de clases particulares de piano presenciales y online. El proyecto reúne la trayectoria del profesor, su metodología de enseñanza, páginas especializadas por perfil de estudiante y contenido educativo. El desarrollo comprende diseño e implementación de interfaces, arquitectura de información, accesibilidad, adaptación a dispositivos móviles, SEO técnico y despliegue en la nube. La solución utiliza exportación estática y un flujo de contacto mediante WhatsApp y correo electrónico, sin necesidad de un backend propio. La versión inicial está publicada en una URL temporal.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "CSS",
+      "Tailwind CSS",
+      "Lucide Icons",
+      "Cloudflare Workers",
+      "Wrangler",
+      "Static Site Generation",
+      "SEO técnico",
+      "Git",
+      "GitHub",
+    ],
+    features: [
+      "Diseño responsive para dispositivos móviles y escritorio",
+      "Página de presentación y trayectoria profesional del profesor",
+      "Página especializada en metodología de enseñanza",
+      "Catálogo de clases presenciales y online",
+      "Páginas específicas para adultos, adolescentes y principiantes",
+      "Blog con contenido educativo sobre piano",
+      "Formulario de consultas integrado con WhatsApp",
+      "Contacto mediante correo electrónico",
+      "Metadatos específicos para cada página",
+      "URLs canónicas y Open Graph",
+      "Datos estructurados y sitemap XML",
+      "Exportación estática mediante Next.js",
+      "Despliegue de activos estáticos en Cloudflare Workers",
+    ],
+    liveUrl: "https://universopiano.raphaelauris.workers.dev",
+    imageUrl: `${pianoImages}/cover.webp`,
     featured: false,
-    documentationReady: false,
+    documentationReady: true,
+    metrics: [
+      {
+        value: "12",
+        label: "Rutas públicas en sitemap",
+      },
+      {
+        value: "19/19",
+        label: "Páginas generadas en build",
+      },
+      {
+        value: "96/100",
+        label: "Accesibilidad reportada",
+      },
+      {
+        value: "96/100",
+        label: "Buenas prácticas reportadas",
+      },
+    ],
+    architecture: [
+      {
+        layer: "Frontend",
+        technologies: [
+          "Next.js 16.4.6",
+          "React 19",
+          "TypeScript",
+        ],
+        description:
+          "Implementación de interfaces y páginas mediante componentes React y una estructura de rutas organizada con Next.js.",
+      },
+      {
+        layer: "Diseño y experiencia de usuario",
+        technologies: [
+          "CSS",
+          "Tailwind CSS 4",
+          "Lucide Icons",
+        ],
+        description:
+          "Diseño adaptable a distintos tamaños de pantalla, navegación móvil y una identidad visual coherente con la enseñanza musical.",
+      },
+      {
+        layer: "Arquitectura estática",
+        technologies: [
+          "Static Site Generation",
+          "Next.js Static Export",
+        ],
+        description:
+          "Generación de archivos HTML, CSS y JavaScript durante la compilación, evitando la necesidad de un servidor de aplicación.",
+      },
+      {
+        layer: "SEO técnico",
+        technologies: [
+          "Metadata",
+          "Canonical URLs",
+          "Open Graph",
+          "Structured Data",
+          "Sitemap XML",
+          "Robots.txt",
+        ],
+        description:
+          "Organización de metadatos y recursos técnicos para facilitar la interpretación del contenido por buscadores. La indexación pública permanece deshabilitada temporalmente.",
+      },
+      {
+        layer: "Despliegue en la nube",
+        technologies: [
+          "Cloudflare Workers",
+          "Wrangler",
+          "Git",
+          "GitHub",
+        ],
+        description:
+          "Publicación de la versión estática del sitio mediante Cloudflare Workers, con control de versiones del código fuente.",
+      },
+      {
+        layer: "Integración de contacto",
+        technologies: [
+          "WhatsApp",
+          "Mailto",
+        ],
+        description:
+          "Flujo de consultas que prepara mensajes para WhatsApp y ofrece contacto directo mediante correo electrónico, sin almacenar consultas en una base de datos propia.",
+      },
+    ],
+    gallery: [
+      {
+        src: `${pianoImages}/cover.webp`,
+        alt: "Página de inicio de UniversoPiano",
+        caption: "Diseño e identidad visual",
+      },
+      {
+        src: `${pianoImages}/mobile.webp`,
+        alt: "Versión móvil del sitio UniversoPiano",
+        caption: "Diseño responsive",
+      },
+      {
+        src: `${pianoImages}/classes.webp`,
+        alt: "Página de modalidades de clases de piano",
+        caption: "Oferta de clases",
+      },
+      {
+        src: `${pianoImages}/about.webp`,
+        alt: "Página de trayectoria profesional del profesor",
+        caption: "Presentación profesional",
+      },
+    ],
+    validations: [
+      "Verificación de TypeScript mediante npx tsc --noEmit sin errores reportados",
+      "Verificación de lint sin errores reportados",
+      "Compilación exitosa con 19 de 19 páginas estáticas generadas",
+      "Sitemap XML con 12 rutas públicas y respuesta HTTP 200 documentada",
+      "URLs canónicas verificadas y ausencia de referencias a localhost en sitemap",
+      "Contacto mediante WhatsApp y correo probado por el desarrollador",
+      "PageSpeed móvil reportado: rendimiento 91/100, accesibilidad 96/100, buenas prácticas 96/100 y SEO 93/100",
+      "PageSpeed escritorio reportado: rendimiento 95/100, accesibilidad 96/100, buenas prácticas 96/100 y SEO 93/100",
+      "Indexación deshabilitada deliberadamente durante la publicación temporal, condición que puede afectar la puntuación SEO",
+    ],
+    nextSteps: [
+      "Conectar el dominio definitivo y actualizar las URLs canónicas",
+      "Habilitar la indexación pública cuando corresponda",
+      "Optimizar las imágenes de portada, logotipo y fotografía",
+      "Repetir las mediciones de PageSpeed en móvil y escritorio",
+      "Completar el aviso de privacidad y verificar los enlaces del sitio",
+    ],
+    competencies: [
+      "Frontend Development",
+      "React Development",
+      "Next.js Development",
+      "TypeScript",
+      "Responsive Web Design",
+      "Information Architecture",
+      "Technical SEO",
+      "Web Accessibility",
+      "Static Site Generation",
+      "Cloud Deployment",
+      "UX/UI Implementation",
+      "Production QA",
+    ],
   },
 ];
 
