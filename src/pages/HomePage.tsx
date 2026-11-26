@@ -2,8 +2,10 @@
 import {
   ArrowRight,
   ArrowUpRight,
+  BrainCircuit,
   Code2,
   Database,
+  Layers3,
   Mail,
   Workflow,
 } from "lucide-react";
@@ -11,6 +13,33 @@ import { Link } from "react-router-dom";
 import { Container } from "../components/ui/Container";
 import { HeroSection } from "../features/hero/HeroSection";
 import { ProjectsPreview } from "../features/projects/ProjectsPreview";
+
+const professionalFocus = [
+  {
+    title: "Full Stack Development",
+    description: "Aplicaciones web y móviles.",
+    icon: Layers3,
+    color: "text-cyan-300",
+    background: "bg-cyan-400/10",
+    to: "/proyectos",
+  },
+  {
+    title: "LLM-Assisted Development",
+    description: "Ingeniería de software asistida por modelos de lenguaje.",
+    icon: BrainCircuit,
+    color: "text-violet-300",
+    background: "bg-violet-400/10",
+    to: "/tecnologias",
+  },
+  {
+    title: "Software Automation",
+    description: "Automatización y optimización de procesos.",
+    icon: Workflow,
+    color: "text-sky-300",
+    background: "bg-sky-400/10",
+    to: "/servicios",
+  },
+];
 
 const services = [
   {
@@ -39,57 +68,85 @@ export function HomePage() {
       <HeroSection />
       <ProjectsPreview />
 
-      <section className="border-t border-white/5 bg-[#091426] py-20">
+      <section className="border-y border-white/5 bg-[#091426] py-16 sm:py-20">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center">
-            <div>
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-4">
+              <span className="h-px w-9 bg-cyan-400" />
               <span className="section-eyebrow">
-                EXPERIENCIA PROFESIONAL
+                ENFOQUE PROFESIONAL
               </span>
-              <h2 className="font-editorial mt-5 text-4xl leading-tight text-white sm:text-5xl">
-                Ingeniería con
-                <br />
-                <span className="gradient-text">
-                  impacto real.
-                </span>
-              </h2>
-              <p className="mt-6 max-w-lg leading-8 text-slate-300">
-                He trabajado en desarrollo de software,
-                automatización y operaciones tecnológicas,
-                participando en proyectos y equipos de
-                organizaciones como Walmart, Banco de Chile y PwC.
-              </p>
-
-              <Link
-                to="/sobre-mi"
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-white"
-              >
-                Conocer mi trayectoria
-                <ArrowUpRight size={17} />
-              </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="premium-card p-7">
-                <span className="font-editorial text-5xl text-cyan-300">
-                  60–70 %
-                </span>
-                <p className="mt-4 text-sm leading-7 text-slate-300">
-                  Reducción del tiempo de reporting mediante
-                  automatización con Python en Banco de Chile.
-                </p>
-              </div>
+            <h2 className="font-editorial mt-5 text-4xl leading-tight text-white sm:text-5xl">
+              Ingeniería, tecnología{" "}
+              <span className="gradient-text">
+                e innovación.
+              </span>
+            </h2>
 
-              <div className="premium-card p-7">
-                <span className="font-editorial text-5xl text-violet-300">
-                  67 %
-                </span>
-                <p className="mt-4 text-sm leading-7 text-slate-300">
-                  Reducción del tiempo de procesamiento de pedidos
-                  mediante automatización en Walmart Chile.
-                </p>
-              </div>
-            </div>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+              Desarrollo soluciones digitales combinando software,
+              inteligencia artificial y automatización.
+            </p>
+          </div>
+
+          <div className="mt-9 grid gap-4 md:grid-cols-3">
+            {professionalFocus.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <Link
+                  key={item.title}
+                  to={item.to}
+                  className="group relative flex h-full flex-col rounded-[20px] border border-white/10 bg-[#111E33] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-[#15243B] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 motion-reduce:transform-none motion-reduce:transition-none"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div
+                      className={`flex size-12 items-center justify-center rounded-xl ${item.background} ${item.color}`}
+                    >
+                      <Icon
+                        size={25}
+                        strokeWidth={1.7}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <ArrowUpRight
+                      size={18}
+                      aria-hidden="true"
+                      className="text-slate-500 transition-colors group-hover:text-cyan-300"
+                    />
+                  </div>
+
+                  <h3 className="mt-5 text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                    {item.description}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-5 border-t border-white/10 pt-6">
+            <Link
+              to="/sobre-mi"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition-colors hover:text-white"
+            >
+              Conocer mi perfil profesional
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
+
+            <Link
+              to="/tecnologias"
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-cyan-300"
+            >
+              Explorar stack tecnológico
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
           </div>
         </Container>
       </section>
@@ -101,6 +158,7 @@ export function HomePage() {
               <span className="section-eyebrow">
                 SERVICIOS
               </span>
+
               <h2 className="font-editorial mt-5 text-4xl text-white sm:text-5xl">
                 De la idea al{" "}
                 <span className="gradient-text">
@@ -128,7 +186,7 @@ export function HomePage() {
                   className="premium-card p-7"
                 >
                   <div className="flex size-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
-                    <Icon size={23} />
+                    <Icon size={23} aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-lg font-semibold text-white">
@@ -168,7 +226,7 @@ export function HomePage() {
               href="mailto:Raphaelauris@gmail.com"
               className="mt-8 inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-500 px-7 text-sm font-bold text-[#061325] hover:brightness-110"
             >
-              <Mail size={18} />
+              <Mail size={18} aria-hidden="true" />
               Contactarme
             </a>
           </div>

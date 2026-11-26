@@ -6,11 +6,16 @@ import {
   BriefcaseBusiness,
   ExternalLink,
   FileText,
+  FlaskConical,
   GraduationCap,
+  Languages,
+  Layers3,
   MapPin,
   ShieldCheck,
   UserRound,
+  Workflow,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Container } from "../components/ui/Container";
 import {
   certifications,
@@ -20,6 +25,48 @@ import {
 
 const cvUrl = "/cv/rafael-ancalipe.pdf";
 const profileUrl = "/images/profile/rafael.webp";
+
+const professionalHighlights = [
+  {
+    title: "Full Stack",
+    subtitle: "Software Development",
+    description:
+      "Desarrollo de aplicaciones web, móviles y servicios backend.",
+    icon: Layers3,
+    color: "text-cyan-300",
+    background: "bg-cyan-400/10",
+    to: "/proyectos",
+  },
+  {
+    title: "574",
+    subtitle: "Pruebas automatizadas",
+    description:
+      "Pruebas aprobadas y documentadas en Condo Access.",
+    icon: FlaskConical,
+    color: "text-violet-300",
+    background: "bg-violet-400/10",
+    to: "/proyectos/condo-access",
+  },
+  {
+    title: "APIs & RPA",
+    subtitle: "Integración y automatización",
+    description:
+      "Experiencia en integración de sistemas y automatización de procesos empresariales.",
+    icon: Workflow,
+    color: "text-sky-300",
+    background: "bg-sky-400/10",
+    to: "/servicios",
+  },
+  {
+    title: "B2",
+    subtitle: "Inglés intermedio alto",
+    description: "TOEIC 940/990",
+    icon: Languages,
+    color: "text-emerald-300",
+    background: "bg-emerald-400/10",
+    to: "/tecnologias",
+  },
+];
 
 export function AboutPage() {
   const [photoFailed, setPhotoFailed] = useState(false);
@@ -34,6 +81,7 @@ export function AboutPage() {
             <div>
               <div className="flex items-center gap-4">
                 <span className="h-px w-9 bg-cyan-400" />
+
                 <span className="section-eyebrow">
                   PERFIL PROFESIONAL
                 </span>
@@ -47,27 +95,45 @@ export function AboutPage() {
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-                Ingeniero en Informática y Analista Programador,
-                enfocado en desarrollo de software, automatización
-                de procesos e integración de sistemas.
+              <p className="mt-6 text-sm font-semibold tracking-wide text-cyan-300 sm:text-base">
+                Software Engineer
+                <span className="mx-3 text-slate-600">|</span>
+                Full Stack Developer
               </p>
 
-              <p className="mt-5 max-w-xl leading-8 text-slate-400">
-                Me interesa construir productos digitales que
-                combinen ingeniería, experiencia de usuario y
-                soluciones prácticas para problemas reales.
+              <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+                Ingeniero en Informática y Analista Programador
+                titulado de Duoc UC, con experiencia en desarrollo
+                de software, integración de APIs REST,
+                automatización de procesos, seguridad de la
+                información y monitoreo TI.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-4 text-sm text-slate-300">
+              <p className="mt-5 max-w-xl leading-8 text-slate-300">
+                He participado en proyectos y equipos tecnológicos
+                de Walmart Chile, Banco de Chile, PwC y SCL
+                Consultores. Actualmente, mi enfoque profesional
+                está orientado al desarrollo Full Stack, la
+                construcción de productos digitales y el uso de
+                modelos de lenguaje (LLMs) como apoyo en los
+                procesos de desarrollo de software.
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-5 text-sm text-slate-300">
                 <span className="inline-flex items-center gap-2">
-                  <MapPin size={17} className="text-cyan-400" />
+                  <MapPin
+                    size={17}
+                    className="text-cyan-400"
+                    aria-hidden="true"
+                  />
                   Santiago, Chile
                 </span>
+
                 <span className="inline-flex items-center gap-2">
                   <GraduationCap
                     size={17}
                     className="text-cyan-400"
+                    aria-hidden="true"
                   />
                   Duoc UC
                 </span>
@@ -77,9 +143,12 @@ export function AboutPage() {
                 <a
                   href={cvUrl}
                   download="Rafael_Ancalipe_CV.pdf"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-500 px-6 text-sm font-bold text-[#061325] hover:brightness-110"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-500 px-6 text-sm font-bold text-[#061325] transition hover:brightness-110"
                 >
-                  <ArrowDownToLine size={18} />
+                  <ArrowDownToLine
+                    size={18}
+                    aria-hidden="true"
+                  />
                   Descargar CV
                 </a>
 
@@ -87,16 +156,19 @@ export function AboutPage() {
                   href="https://www.linkedin.com/in/rafaelancalipe/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:border-cyan-400/40"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 text-sm font-semibold text-white transition-colors hover:border-cyan-400/40"
                 >
                   Ver LinkedIn
-                  <ArrowUpRight size={17} />
+                  <ArrowUpRight
+                    size={17}
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
             </div>
 
             <div className="relative mx-auto w-full max-w-[410px]">
-              <div className="absolute -inset-5 rounded-[35px] bg-gradient-to-br from-cyan-500/15 via-transparent to-violet-600/20 blur-2xl" />
+              <div className="pointer-events-none absolute -inset-5 rounded-[35px] bg-gradient-to-br from-cyan-500/15 via-transparent to-violet-600/20 blur-2xl" />
 
               <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/15 bg-[linear-gradient(145deg,#163452,#101B32_55%,#25194A)]">
                 {!photoFailed ? (
@@ -104,6 +176,7 @@ export function AboutPage() {
                     src={profileUrl}
                     alt="Fotografía profesional de Rafael Ancalipe"
                     onError={() => setPhotoFailed(true)}
+                    decoding="async"
                     className="h-full w-full object-cover object-center"
                   />
                 ) : (
@@ -113,11 +186,14 @@ export function AboutPage() {
                         size={57}
                         strokeWidth={1.2}
                         className="text-cyan-300"
+                        aria-hidden="true"
                       />
                     </div>
+
                     <span className="font-editorial text-4xl text-white">
                       RAFAEL.DEV
                     </span>
+
                     <span className="text-xs uppercase tracking-[0.25em] text-cyan-300">
                       Full Stack Developer
                     </span>
@@ -127,10 +203,11 @@ export function AboutPage() {
 
               <div className="absolute -right-3 bottom-8 rounded-xl border border-white/15 bg-[#101B30]/95 px-5 py-3 shadow-xl backdrop-blur-xl sm:-right-7">
                 <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-                  Ingeniería
+                  Software Engineer
                 </p>
+
                 <p className="mt-1 text-sm font-semibold text-white">
-                  Software & Automatización
+                  Full Stack & LLMs
                 </p>
               </div>
             </div>
@@ -138,37 +215,52 @@ export function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-white/5 bg-[#0B172A] py-16">
+      <section className="border-y border-white/5 bg-[#0B172A] py-14 sm:py-16">
         <Container>
-          <div className="grid gap-5 md:grid-cols-3">
-            <div className="premium-card p-7">
-              <p className="font-editorial text-5xl text-cyan-300">
-                60–70 %
-              </p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Reducción del tiempo de reporting mediante
-                automatización en Banco de Chile.
-              </p>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {professionalHighlights.map((highlight) => {
+              const Icon = highlight.icon;
 
-            <div className="premium-card p-7">
-              <p className="font-editorial text-5xl text-violet-300">
-                67 %
-              </p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Reducción del tiempo de procesamiento de pedidos
-                mediante Python y Selenium en Walmart Chile.
-              </p>
-            </div>
+              return (
+                <Link
+                  key={highlight.title}
+                  to={highlight.to}
+                  className="group relative flex h-full flex-col rounded-[22px] border border-white/10 bg-[linear-gradient(145deg,#13223A,#0D1729)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 motion-reduce:transform-none motion-reduce:transition-none"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div
+                      className={`flex size-11 items-center justify-center rounded-xl ${highlight.background} ${highlight.color}`}
+                    >
+                      <Icon
+                        size={23}
+                        strokeWidth={1.7}
+                        aria-hidden="true"
+                      />
+                    </div>
 
-            <div className="premium-card p-7">
-              <p className="font-editorial text-5xl text-sky-300">
-                940/990
-              </p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Puntuación TOEIC de inglés avanzado.
-              </p>
-            </div>
+                    <ArrowUpRight
+                      size={17}
+                      aria-hidden="true"
+                      className="text-slate-500 transition-colors group-hover:text-cyan-300"
+                    />
+                  </div>
+
+                  <p
+                    className={`font-editorial mt-6 text-4xl leading-tight ${highlight.color}`}
+                  >
+                    {highlight.title}
+                  </p>
+
+                  <p className="mt-3 text-sm font-semibold text-white">
+                    {highlight.subtitle}
+                  </p>
+
+                  <p className="mt-3 text-sm leading-6 text-slate-400">
+                    {highlight.description}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -197,13 +289,17 @@ export function AboutPage() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-start gap-4">
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
-                      <BriefcaseBusiness size={21} />
+                      <BriefcaseBusiness
+                        size={21}
+                        aria-hidden="true"
+                      />
                     </div>
 
                     <div>
                       <h3 className="text-xl font-semibold text-white">
                         {experience.company}
                       </h3>
+
                       <p className="mt-1 text-sm text-cyan-300">
                         {experience.role}
                       </p>
@@ -226,6 +322,7 @@ export function AboutPage() {
                       className="flex items-start gap-3 text-sm leading-7 text-slate-400"
                     >
                       <span className="mt-3 size-1.5 shrink-0 rounded-full bg-cyan-400" />
+
                       {highlight}
                     </li>
                   ))}
@@ -233,7 +330,10 @@ export function AboutPage() {
 
                 <div className="mt-6 flex flex-wrap gap-2">
                   {experience.technologies.map((technology) => (
-                    <span key={technology} className="tech-chip">
+                    <span
+                      key={technology}
+                      className="tech-chip"
+                    >
                       {technology}
                     </span>
                   ))}
@@ -249,8 +349,14 @@ export function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <div className="flex items-center gap-3 text-cyan-300">
-                <GraduationCap size={24} />
-                <span className="section-eyebrow">FORMACIÓN</span>
+                <GraduationCap
+                  size={24}
+                  aria-hidden="true"
+                />
+
+                <span className="section-eyebrow">
+                  FORMACIÓN
+                </span>
               </div>
 
               <h2 className="font-editorial mt-5 text-4xl text-white">
@@ -259,27 +365,33 @@ export function AboutPage() {
 
               <div className="mt-8 space-y-4">
                 {education.map((item) => (
-                  <div
+                  <article
                     key={item.title}
                     className="premium-card p-6"
                   >
                     <h3 className="text-lg font-semibold text-white">
                       {item.title}
                     </h3>
+
                     <p className="mt-2 text-sm text-slate-300">
                       {item.institution}
                     </p>
+
                     <p className="mt-2 text-xs text-cyan-300">
                       {item.date}
                     </p>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
 
             <div>
               <div className="flex items-center gap-3 text-cyan-300">
-                <ShieldCheck size={24} />
+                <ShieldCheck
+                  size={24}
+                  aria-hidden="true"
+                />
+
                 <span className="section-eyebrow">
                   APRENDIZAJE CONTINUO
                 </span>
@@ -299,7 +411,9 @@ export function AboutPage() {
                       <ShieldCheck
                         size={18}
                         className="mt-1 shrink-0 text-cyan-400"
+                        aria-hidden="true"
                       />
+
                       {certificate}
                     </li>
                   ))}
@@ -322,7 +436,10 @@ export function AboutPage() {
               </span>
 
               <h2 className="font-editorial mt-5 text-4xl text-white sm:text-5xl">
-                Mi CV <span className="gradient-text">profesional.</span>
+                Mi CV{" "}
+                <span className="gradient-text">
+                  profesional.
+                </span>
               </h2>
 
               <p className="mt-5 max-w-xl leading-8 text-slate-300">
@@ -336,18 +453,24 @@ export function AboutPage() {
                 href={cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:border-cyan-400/40"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-cyan-400/40"
               >
-                <ExternalLink size={17} />
+                <ExternalLink
+                  size={17}
+                  aria-hidden="true"
+                />
                 Abrir PDF
               </a>
 
               <a
                 href={cvUrl}
                 download="Rafael_Ancalipe_CV.pdf"
-                className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-bold text-[#061325] hover:bg-cyan-300"
+                className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-bold text-[#061325] transition-colors hover:bg-cyan-300"
               >
-                <ArrowDownToLine size={17} />
+                <ArrowDownToLine
+                  size={17}
+                  aria-hidden="true"
+                />
                 Descargar CV
               </a>
             </div>
@@ -355,7 +478,12 @@ export function AboutPage() {
 
           <div className="overflow-hidden rounded-[24px] border border-white/15 bg-[#101B31]">
             <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-              <FileText size={19} className="text-cyan-300" />
+              <FileText
+                size={19}
+                className="text-cyan-300"
+                aria-hidden="true"
+              />
+
               <span className="text-sm font-medium text-slate-200">
                 Rafael_Ancalipe_CV.pdf
               </span>
@@ -369,14 +497,21 @@ export function AboutPage() {
             >
               <div className="p-8 text-center">
                 <p className="text-slate-300">
-                  El navegador no admite la visualización integrada
-                  de este PDF.
+                  El navegador no admite la visualización
+                  integrada de este PDF.
                 </p>
+
                 <a
                   href={cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-2 text-cyan-300"
                 >
-                  <FileText size={17} />
+                  <FileText
+                    size={17}
+                    aria-hidden="true"
+                  />
+
                   Abrir currículum
                 </a>
               </div>
